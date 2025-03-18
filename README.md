@@ -26,11 +26,11 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 - **📈 Line Chart**: Tracks sales trends over time.
 - **📊 Bar Chart**: Shows user growth metrics.
 - **🥧 Pie Chart**: Visualizes category distribution with dynamic tooltips and labels.  
-🌗 **Theme Support**: Light & dark mode with session persistence using cookies & localStorage.  
-🔐 **Authentication**: Secure session-based authentication with automatic logout after inactivity.  
-📱 **Responsive Design**: Optimized for mobile and desktop with dynamic chart sizing.  
-📋 **Data Table**: Displays user sales data in a structured format.  
-⏳ **Loading States**: Animated indicators for smooth page transitions.  
+- **🌗Theme Support**: Light & dark mode with session persistence using cookies & localStorage.  
+- **🔐Authentication**: Secure session-based authentication with automatic logout after inactivity.  
+- **📱Responsive Design**: Optimized for mobile and desktop with dynamic chart sizing.  
+- **📋Data Table**: Displays user sales data in a structured format.  
+- **⏳Loading States**: Animated indicators for smooth page transitions.  
 
 ---
 
