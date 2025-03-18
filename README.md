@@ -1,6 +1,6 @@
 # BI Dashboard
 
-![BI Dashboard Preview](https://your-site-image-link.com)  
+![BI Dashboard Preview](https://github.com/niy42/Bi-dashboard/blob/main/imgs/bi_dashboard.png)  
 *A modern and interactive Business Intelligence dashboard.*
 
 ## 🚀 Overview
@@ -21,8 +21,8 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 ---
 
 ## ✨ Features
-✅ **Dashboard Overview**: Displays total users, active sessions, and sales revenue in responsive metric cards.  
-📊 **Data Visualizations**:
+- **✅ Dashboard Overview**: Displays total users, active sessions, and sales revenue in responsive metric cards.  
+- **📊 Data Visualizations**:
 - **📈 Line Chart**: Tracks sales trends over time.
 - **📊 Bar Chart**: Shows user growth metrics.
 - **🥧 Pie Chart**: Visualizes category distribution with dynamic tooltips and labels.  
