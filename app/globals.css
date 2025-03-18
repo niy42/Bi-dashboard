@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background-color-light: #f3f4f6;
+  --background-color-dark: #1f2937;
+  --text-color-light: #000000;
+  --text-color-dark: #ffffff;
+  --form-background-light: #e5e7eb; /* Slightly darker than the light mode bg */
+  --form-background-dark: #252f3f;  /* Slightly lighter than the dark mode bg */
+}
+
+[data-theme="light"] {
+  --background-color: var(--background-color-light);
+  --text-color: var(--text-color-light);
+  --form-background: var(--form-background-light);
+}
+
+[data-theme="dark"] {
+  --background-color: var(--background-color-dark);
+  --text-color: var(--text-color-dark);
+  --form-background: var(--form-background-dark);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+input,
+textarea,
+button,
+select {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/*body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 20%, #e2e8f0 0%, var(--background-color) 70%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@media (prefers-color-scheme: dark) {
+  body::before {
+    background: radial-gradient(circle at 50% 20%, #1e293b 0%, var(--background-color) 70%);
+    opacity: 0.5;
+  }
+}*/
