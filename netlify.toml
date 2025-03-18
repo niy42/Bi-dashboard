@@ -1,16 +1,5 @@
 [build]
   command = "npm run build"
 
-  # Remove functions setting unless you're actually using Netlify Functions
-  # functions = "netlify/functions"
-
-  # Remove publish setting, Netlify handles this for Next.js
-  # publish = ".next"
-
-[[redirects]]
-  from = "/*"
-  to = "/"
-  status = 200
-
 [[plugins]]
   package = "@netlify/plugin-nextjs"
