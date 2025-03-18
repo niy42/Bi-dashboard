@@ -1,21 +1,16 @@
-# example netlify.toml
 [build]
   command = "npm run build"
-  functions = "netlify/functions"
-  publish = ".next"
 
-  ## Uncomment to use this redirect for Single Page Applications like create-react-app.
-  ## Not needed for static site generators.
-  #[[redirects]]
-  #  from = "/*"
-  #  to = "/index.html"
-  #  status = 200
+  # Remove functions setting unless you're actually using Netlify Functions
+  # functions = "netlify/functions"
 
-  ## (optional) Settings for Netlify Dev
-  ## https://github.com/netlify/cli/blob/main/docs/netlify-dev.md#project-detection
-  #[dev]
-  #  command = "yarn start" # Command to start your dev server
-  #  port = 3000 # Port that the dev server will be listening on
-  #  publish = "dist" # Folder with the static content for _redirect file
+  # Remove publish setting, Netlify handles this for Next.js
+  # publish = ".next"
 
-  ## more info on configuring this file: https://ntl.fyi/file-based-build-config
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
