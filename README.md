@@ -1,141 +1,180 @@
-BI Dashboard
-A modern Business Intelligence (BI) dashboard built with Next.js, Tailwind CSS, Material-UI (MUI), and Recharts. This project provides an interactive interface to visualize key metrics, sales data, user growth, and category distributions, with support for light/dark themes and user authentication.
-Table of Contents
-Features (#features)
-Tech Stack (#tech-stack)
-Setup Instructions (#setup-instructions)
-Project Structure (#project-structure)
-Design Considerations (#design-considerations)
-Usage (#usage)
-Contributing (#contributing)
-License (#license)
-Features
-Dashboard Overview: Displays total users, active sessions, and sales revenue in responsive metric cards.
-Data Visualizations:
-Line Chart: Tracks sales trends over time.
-Bar Chart: Shows user growth metrics.
-Pie Chart: Visualizes category distribution with dynamic tooltips and labels.
-Theme Support: Light and dark modes with persistence across sessions using cookies and localStorage.
-Authentication: Session-based authentication with automatic logout after inactivity.
-Responsive Design: Optimized for mobile and desktop with dynamic chart sizing and layout adjustments.
-Data Table: Displays detailed user sales data.
-Loading States: Animated loading indicators during page transitions.
-Tech Stack
-Framework: Next.js (App Router)
-Styling: Tailwind CSS for utility-first styling, Material-UI for components
-Charts: Recharts for data visualizations
-Authentication: NextAuth.js for session management
-Fonts: Geist and Geist Mono from Vercel
-State Management: React Context API for theme persistence
-Database: Placeholder for PostgreSQL (via Prisma, not fully implemented in this README)
-Setup Instructions
-Prerequisites
-Node.js: v18.x or later
-npm: v9.x or later (or use yarn/pnpm)
-Git: For cloning the repository
-Installation
-Clone the Repository:
-bash
+# BI Dashboard
+
+![BI Dashboard Preview](https://your-site-image-link.com)  
+*A modern and interactive Business Intelligence dashboard.*
+
+## 🚀 Overview
+BI Dashboard is a cutting-edge business intelligence application built with **Next.js, Tailwind CSS, Material-UI (MUI), and Recharts**. It provides an interactive and visually appealing interface to track key business metrics such as sales, user growth, and category distributions. The dashboard supports **light/dark themes, user authentication, and responsive design** to enhance user experience across all devices.
+
+---
+
+## 📌 Table of Contents
+- [✨ Features](#features)
+- [🛠️ Tech Stack](#tech-stack)
+- [⚡ Setup Instructions](#setup-instructions)
+- [📁 Project Structure](#project-structure)
+- [🎨 Design Considerations](#design-considerations)
+- [📌 Usage](#usage)
+- [🤝 Contributing](#contributing)
+- [📜 License](#license)
+
+---
+
+## ✨ Features
+✅ **Dashboard Overview**: Displays total users, active sessions, and sales revenue in responsive metric cards.  
+📊 **Data Visualizations**:
+- **📈 Line Chart**: Tracks sales trends over time.
+- **📊 Bar Chart**: Shows user growth metrics.
+- **🥧 Pie Chart**: Visualizes category distribution with dynamic tooltips and labels.  
+🌗 **Theme Support**: Light & dark mode with session persistence using cookies & localStorage.  
+🔐 **Authentication**: Secure session-based authentication with automatic logout after inactivity.  
+📱 **Responsive Design**: Optimized for mobile and desktop with dynamic chart sizing.  
+📋 **Data Table**: Displays user sales data in a structured format.  
+⏳ **Loading States**: Animated indicators for smooth page transitions.  
+
+---
+
+## 🛠️ Tech Stack
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/), [Material-UI (MUI)](https://mui.com/)
+- **Charts**: [Recharts](https://recharts.org/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **Fonts**: Geist & Geist Mono from Vercel
+- **State Management**: React Context API (for theme persistence)
+- **Database**: PostgreSQL (via Prisma - optional)
+
+---
+
+## ⚡ Setup Instructions
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js**: v18.x or later
+- **npm**: v9.x or later (or use yarn/pnpm)
+- **Git**: For cloning the repository
+
+### Installation
+```bash
+# Clone the Repository
 git clone https://github.com/your-username/bi-dashboard.git
 cd bi-dashboard
-Install Dependencies:
-bash
+
+# Install Dependencies
 npm install
-Set Up Environment Variables:
-Create a .env.local file in the root directory.
-Add the following variables (adjust as needed):
-env
+```
+
+### Environment Variables
+Create a `.env.local` file in the root directory and add:
+```env
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-secret-key-here
-# Add database URL if using Prisma
-# DATABASE_URL=postgresql://user:password@localhost:5432/bi_dashboard
-Generate a NEXTAUTH_SECRET using:
-bash
+# DATABASE_URL=postgresql://user:password@localhost:5432/bi_dashboard (if using Prisma)
+```
+Generate a secure **NEXTAUTH_SECRET**:
+```bash
 openssl rand -base64 32
-Run the Development Server:
-bash
+```
+
+### Running the Application
+```bash
+# Start Development Server
 npm run dev
-Open http://localhost:3000 in your browser.
-Build for Production:
-bash
+# Open http://localhost:3000 in your browser
+
+# Build for Production
 npm run build
 npm start
-Optional: Database Setup
-If integrating with PostgreSQL:
-Install Prisma:
-bash
+```
+
+### Optional: Database Setup (PostgreSQL)
+```bash
+# Install Prisma
 npm install prisma --save-dev
-Initialize Prisma:
-bash
+
+# Initialize Prisma
 npx prisma init
-Update prisma/schema.prisma with your schema and run:
-bash
+
+# Apply migrations
 npx prisma migrate dev --name init
-Project Structure
+```
+
+---
+
+## 📁 Project Structure
+```
 bi-dashboard/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Root layout with ThemeProvider and AuthProvider
-│   ├── page.tsx            # Login page
-│   └── dashboard/          # Dashboard route
-│       └── page.tsx        # Dashboard component
-├── components/             # Reusable React components
-│   ├── AuthProvider.tsx    # NextAuth.js wrapper
-│   ├── MetricsCard.tsx     # Metric display card
-│   ├── ThemeToggle.tsx     # Theme switcher
-│   ├── charts/             # Chart components
-│   │   ├── LineChart.tsx   # Sales line chart
-│   │   ├── BarChart.tsx    # User bar chart
-│   │   └── PieChart.tsx    # Category pie chart
-│   └── DataTable.tsx       # User sales data table
-├── context/                # React Context
-│   └── ThemeContext.tsx    # Theme management with persistence
-├── lib/                    # Utility functions and mock data
-│   └── mockData.ts         # Mock dashboard data
-├── public/                 # Static assets
-├── styles/                 # Global CSS
-│   └── globals.css         # Tailwind and custom styles
-├── .env.local              # Environment variables (not tracked)
-├── next.config.js          # Next.js configuration
-├── package.json            # Dependencies and scripts
-└── README.md               # Project documentation
-Design Considerations
-Theme Persistence
-Approach: Uses cookies for server-side theme persistence and localStorage for client-side sync. The data-theme attribute on <html> enables global CSS theming.
-Why Cookies?: Ensures SSR consistency by allowing the server to read the theme, avoiding hydration errors that occur with localStorage alone.
-Trade-offs: Cookies add a small overhead to requests but provide seamless theme application across page loads. localStorage is kept for redundancy and client-side access.
-Authentication
-Inactivity Timeout: Users are logged out after 1 minute of inactivity (configurable in Dashboard’s useEffect), with a warning via MUI’s Snackbar.
-Session Management: NextAuth.js handles session state, redirecting unauthenticated users to the login page.
-Responsive Design
-Charts: Adjust radius, font size, and padding based on screen width (isMobile state).
-Layout: Uses Tailwind’s grid system for flexible column layouts (e.g., md:grid-cols-3 for metrics).
-Styling
-Tailwind CSS: Provides rapid prototyping and responsive utilities (e.g., dark: prefix for dark mode).
-MUI: Adds polished components (e.g., TextField, Button) with theme-aware styling via createTheme.
-Recharts: Custom styles for tooltips, labels, and legends ensure theme consistency.
-Performance
-Loading States: Animated spinners and pulsing text improve UX during data fetches or page transitions.
-Server Components: Leverage Next.js App Router’s server-side rendering for initial page loads, with client components marked "use client".
-Error Handling
-Hydration: suppressHydrationWarning on <html> mitigates minor SSR/CSR discrepancies (e.g., theme flicker).
-Usage
-Login:
-Visit / and enter credentials (configure NextAuth.js providers in AuthProvider).
-Dashboard:
-After login, access /dashboard to view metrics, charts, and data tables.
-Theme Toggle:
-Use the ThemeToggle component in the dashboard header to switch between light and dark modes.
-Logout:
-Click "Logout" or wait for the inactivity timeout.
-Contributing
-Fork the repository.
-Create a feature branch (git checkout -b feature/your-feature).
-Commit changes (git commit -m "Add your feature").
-Push to your branch (git push origin feature/your-feature).
-Open a Pull Request.
-Guidelines
-Follow ESLint and Prettier rules (run npm run lint to check).
-Write tests for new components using Jest or React Testing Library (if added).
-Document any new features in this README.
-License
-This project is licensed under the MIT License (LICENSE).
+├── app/                   # Next.js App Router
+│   ├── layout.tsx         # Root layout with ThemeProvider & AuthProvider
+│   ├── page.tsx           # Login page
+│   └── dashboard/         # Dashboard route
+│       └── page.tsx       # Dashboard component
+├── components/            # Reusable React components
+│   ├── AuthProvider.tsx   # NextAuth.js wrapper
+│   ├── MetricsCard.tsx    # Metric display card
+│   ├── ThemeToggle.tsx    # Theme switcher
+│   ├── charts/            # Chart components
+│   ├── DataTable.tsx      # User sales data table
+├── context/               # React Context (Theme management)
+├── lib/                   # Utility functions & mock data
+├── public/                # Static assets
+├── styles/                # Global CSS
+├── .env.local             # Environment variables (not tracked)
+├── next.config.js         # Next.js configuration
+├── package.json           # Dependencies & scripts
+└── README.md              # Project documentation
+```
+
+---
+
+## 🎨 Design Considerations
+### 🌗 Theme Persistence
+- **Approach**: Uses cookies for SSR theme persistence & localStorage for client-side sync.
+- **Why Cookies?**: Prevents hydration errors when switching themes.
+
+### 🔐 Authentication
+- **Inactivity Timeout**: Logs out users after 1 min of inactivity (configurable).
+- **Session Handling**: Managed via NextAuth.js with automatic redirects.
+
+### 📱 Responsive Design
+- **Charts**: Adjusts size, padding, and labels dynamically.
+- **Layout**: Uses Tailwind’s grid system for flexible columns.
+
+### ⚡ Performance
+- **Loading States**: Animated spinners for smooth UX.
+- **Server Components**: Uses Next.js App Router for SSR improvements.
+
+---
+
+## 📌 Usage
+- **Login**: Enter credentials (configured in NextAuth.js providers).
+- **Dashboard**: View key metrics, charts, and data tables.
+- **Theme Toggle**: Switch between light & dark mode.
+- **Logout**: Click "Logout" or wait for inactivity timeout.
+
+---
+
+## 🤝 Contributing
+We welcome contributions! To contribute:
+```bash
+# Fork the repository
+# Create a feature branch
+git checkout -b feature/your-feature
+# Commit changes
+git commit -m "Add your feature"
+# Push to your branch
+git push origin feature/your-feature
+# Open a Pull Request
+```
+### Contribution Guidelines
+✅ Follow ESLint & Prettier rules (`npm run lint`).  
+✅ Write tests for new components.  
+✅ Document any new features in this README.  
+
+---
+
+## 📜 License
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
+---
+
+🚀 **Live Demo**: [Visit BI Dashboard](https://your-site-link.com)
+
