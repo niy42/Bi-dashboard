@@ -55,7 +55,7 @@ Ensure you have the following installed:
 ### Installation
 ```bash
 # Clone the Repository
-git clone https://github.com/your-username/bi-dashboard.git
+git clone https://github.com/niy2/bi-dashboard.git
 cd bi-dashboard
 
 # Install Dependencies
