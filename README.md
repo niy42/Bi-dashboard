@@ -20,7 +20,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-✨ ## Features
+## Features
 - **✅ Dashboard Overview**: Displays total users, active sessions, and sales revenue in responsive metric cards.  
 - **📊 Data Visualizations**:
 - **📈 Line Chart**: Tracks sales trends over time.
