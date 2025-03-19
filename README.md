@@ -144,7 +144,7 @@ bi-dashboard/
 
 ---
 
-## 📌 Usage
+## Usage
 - **Login**: Enter credentials (configured in NextAuth.js providers).
 - **Dashboard**: View key metrics, charts, and data tables.
 - **Theme Toggle**: Switch between light & dark mode.
@@ -171,8 +171,8 @@ git push origin feature/your-feature
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+## License
+This project is licensed under the **MIT License**. See📜[LICENSE](LICENSE) for details.
 
 ---
 
