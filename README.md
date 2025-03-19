@@ -34,7 +34,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-🛠️ ## Tech Stack
+## Tech Stack
 - **Framework**: [Next.js](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/), [Material-UI (MUI)](https://mui.com/)
 - **Charts**: [Recharts](https://recharts.org/)
@@ -45,7 +45,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-⚡ ## Setup Instructions
+## Setup Instructions
 ### Prerequisites
 Ensure you have the following installed:
 - **Node.js**: v18.x or later
@@ -99,7 +99,7 @@ npx prisma migrate dev --name init
 
 ---
 
-📁 ##  Project Structure
+##  Project Structure
 ```
 bi-dashboard/
 ├── app/                   # Next.js App Router
@@ -125,7 +125,7 @@ bi-dashboard/
 
 ---
 
-🎨 ## Design Considerations
+## Design Considerations
 ### 🌗 Theme Persistence
 - **Approach**: Uses cookies for SSR theme persistence & localStorage for client-side sync.
 - **Why Cookies?**: Prevents hydration errors when switching themes.
@@ -152,7 +152,7 @@ bi-dashboard/
 
 ---
 
-🤝 ## Contributing
+## Contributing
 We welcome contributions! To contribute:
 ```bash
 # Fork the repository
