@@ -176,5 +176,5 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 
 ---
 
-🚀 **Live Demo**: [Visit BI Dashboard](https://your-site-link.com)
+🚀 **Live Demo**: [Visit BI Dashboard](https://bi-dashb.netlify.app/)
 
