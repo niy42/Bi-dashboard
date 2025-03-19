@@ -67,6 +67,9 @@ Create a `.env.local` file in the root directory and add:
 ```env
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-secret-key-here
+```
+(Optional) Create a `.env` file specifically for postgresql in the root directory and add:
+```env
 # DATABASE_URL=postgresql://user:password@localhost:5432/bi_dashboard (if using Prisma)
 ```
 Generate a secure **NEXTAUTH_SECRET**:
