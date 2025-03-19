@@ -20,7 +20,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-## ✨ Features
+✨ ## Features
 - **✅ Dashboard Overview**: Displays total users, active sessions, and sales revenue in responsive metric cards.  
 - **📊 Data Visualizations**:
 - **📈 Line Chart**: Tracks sales trends over time.
@@ -34,7 +34,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-## 🛠️ Tech Stack
+🛠️ ## Tech Stack
 - **Framework**: [Next.js](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/), [Material-UI (MUI)](https://mui.com/)
 - **Charts**: [Recharts](https://recharts.org/)
@@ -45,7 +45,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-## ⚡ Setup Instructions
+⚡ ## Setup Instructions
 ### Prerequisites
 Ensure you have the following installed:
 - **Node.js**: v18.x or later
@@ -99,7 +99,7 @@ npx prisma migrate dev --name init
 
 ---
 
-## 📁 Project Structure
+📁 ##  Project Structure
 ```
 bi-dashboard/
 ├── app/                   # Next.js App Router
@@ -125,26 +125,26 @@ bi-dashboard/
 
 ---
 
-## 🎨 Design Considerations
+🎨 ## Design Considerations
 ### 🌗 Theme Persistence
 - **Approach**: Uses cookies for SSR theme persistence & localStorage for client-side sync.
 - **Why Cookies?**: Prevents hydration errors when switching themes.
 
-### 🔐 Authentication
+🔐 ## Authentication
 - **Inactivity Timeout**: Logs out users after 1 min of inactivity (configurable).
 - **Session Handling**: Managed via NextAuth.js with automatic redirects.
 
-### 📱 Responsive Design
+📱 ## Responsive Design
 - **Charts**: Adjusts size, padding, and labels dynamically.
 - **Layout**: Uses Tailwind’s grid system for flexible columns.
 
-### ⚡ Performance
+⚡ ## Performance
 - **Loading States**: Animated spinners for smooth UX.
 - **Server Components**: Uses Next.js App Router for SSR improvements.
 
 ---
 
-## 📌 Usage
+📌 ## Usage
 - **Login**: Enter credentials (configured in NextAuth.js providers).
 - **Dashboard**: View key metrics, charts, and data tables.
 - **Theme Toggle**: Switch between light & dark mode.
@@ -152,7 +152,7 @@ bi-dashboard/
 
 ---
 
-## 🤝 Contributing
+🤝 ## Contributing
 We welcome contributions! To contribute:
 ```bash
 # Fork the repository
