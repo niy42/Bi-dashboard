@@ -126,7 +126,7 @@ bi-dashboard/
 ---
 
 ## Design Considerations
-### 🌗 Theme Persistence
+## 🌗 Theme Persistence
 - **Approach**: Uses cookies for SSR theme persistence & localStorage for client-side sync.
 - **Why Cookies?**: Prevents hydration errors when switching themes.
 
