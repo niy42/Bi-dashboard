@@ -116,8 +116,9 @@ bi-dashboard/
 ├── context/               # React Context (Theme management)
 ├── lib/                   # Utility functions & mock data
 ├── public/                # Static assets
-├── styles/                # Global CSS
-├── .env.local             # Environment variables (not tracked)
+├── styles/
+├── .env                   # Environment variables (specifically for postgresql)
+├── .env.local             # Environment variables (for next env variables)
 ├── next.config.js         # Next.js configuration
 ├── package.json           # Dependencies & scripts
 └── README.md              # Project documentation
