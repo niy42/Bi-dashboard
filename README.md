@@ -130,21 +130,21 @@ bi-dashboard/
 - **Approach**: Uses cookies for SSR theme persistence & localStorage for client-side sync.
 - **Why Cookies?**: Prevents hydration errors when switching themes.
 
-🔐 ## Authentication
+## 🔐 Authentication
 - **Inactivity Timeout**: Logs out users after 1 min of inactivity (configurable).
 - **Session Handling**: Managed via NextAuth.js with automatic redirects.
 
-📱 ## Responsive Design
+## 📱 Responsive Design
 - **Charts**: Adjusts size, padding, and labels dynamically.
 - **Layout**: Uses Tailwind’s grid system for flexible columns.
 
-⚡ ## Performance
+## ⚡ Performance
 - **Loading States**: Animated spinners for smooth UX.
 - **Server Components**: Uses Next.js App Router for SSR improvements.
 
 ---
 
-📌 ## Usage
+## 📌 Usage
 - **Login**: Enter credentials (configured in NextAuth.js providers).
 - **Dashboard**: View key metrics, charts, and data tables.
 - **Theme Toggle**: Switch between light & dark mode.
