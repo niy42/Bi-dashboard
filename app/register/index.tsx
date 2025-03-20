@@ -182,14 +182,6 @@ export default function Register() {
           </Typography>
         </form>
       </div>
-      <Typography
-        variant="body2"
-        className="absolute bottom-4 left-4 text-[var(--text-color)] text-xs sm:text-sm opacity-75"
-        data-aos="fade-right"
-        data-aos-delay="900"
-      >
-        Made with ❤️ from Adeniyi
-      </Typography>
     </div>
   );
 }

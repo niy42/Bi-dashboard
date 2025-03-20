@@ -53,7 +53,7 @@ export default function Login() {
   };
 
   return (
-    <div className="relative overflow-hidden flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
+    <div className="relative overflow-hidden flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
       <div
         className="w-full max-w-md space-y-6 p-6 sm:p-8 rounded-lg shadow-lg bg-[var(--form-background)] text-[var(--text-color)]"
         data-aos="fade-up"
@@ -78,11 +78,11 @@ export default function Login() {
             variant="outlined"
             InputLabelProps={{
               style: { color: "var(--text-color)" },
-              shrink: true,
+              shrink: true
             }}
             inputProps={{
               style: { color: "var(--text-color)" },
-              autoCapitalize: "none",
+              autoCapitalize: "none"
             }}
             error={!!error && (!email || !/\S+@\S+\.\S+/.test(email))}
             disabled={loading}
@@ -101,7 +101,7 @@ export default function Login() {
             variant="outlined"
             InputLabelProps={{
               style: { color: "var(--text-color)" },
-              shrink: true,
+              shrink: true
             }}
             inputProps={{ style: { color: "var(--text-color)" } }}
             error={!!error && (!password || password.length < 6)}
@@ -119,15 +119,15 @@ export default function Login() {
                 disabled={loading}
                 sx={{
                   color: "var(--text-color)",
-                  "&.Mui-checked": {
-                    color: "var(--primary-color)", // Updated to use CSS variable
+                  '&.Mui-checked': {
+                    color: "primary",
                   },
                 }}
               />
             }
             label="Keep me logged in"
             className="text-[var(--text-color)]"
-            data-aos="fade-up" // Restored AOS animation
+            data-aos=""
             data-aos-delay="500"
           />
 
@@ -149,13 +149,13 @@ export default function Login() {
             sx={{
               mt: 0.5,
               py: 1.5,
-              backgroundColor: "var(--primary-color)", // Updated to use CSS variable
-              "&:hover": {
-                backgroundColor: "var(--primary-hover)", // Updated to use CSS variable
+              backgroundColor: "primary",
+              '&:hover': {
+                backgroundColor: "primary.dark",
               },
             }}
-            data-aos="fade-up" // Restored AOS animation
-            data-aos-delay="700" // Restored delay
+            data-aos=""
+            data-aos-delay=""
           >
             {loading ? (
               <div className={`flex items-center justify-center ${theme === "dark" ? "text-amber-100" : "text-gray-900"}`}>
@@ -173,20 +173,22 @@ export default function Login() {
             data-aos-delay="800"
           >
             Don’t have an account?
-            <a href="/register" className="text-[var(--primary-color)] hover:underline">
+            <a
+              href="/register"
+              className="text-[var(--primary-color)] hover:underline"
+            >
               Register
             </a>
           </Typography>
         </form>
       </div>
-      <Typography
-        variant="body2"
-        className="absolute bottom-4 left-4 text-[var(--text-color)] text-xs sm:text-sm opacity-75"
+      <p
+        className="mt-16 -ml-[900px] text-[var(--text-color)] text-xs sm:text-sm opacity-75"
         data-aos="fade-right"
-        data-aos-delay="900"
+        data-aos-delay="1000"
       >
-        Made with ❤️ from Adeniyi
-      </Typography>
+        Made with ❤️ from Niy42
+      </p>
     </div>
   );
 }
