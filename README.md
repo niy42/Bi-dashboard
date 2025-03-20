@@ -1,6 +1,6 @@
 # BI Dashboard
 
-![BI Dashboard Preview](https://github.com/niy42/Bi-dashboard/blob/main/imgs/bi_dashboard.png)  
+![BI Dashboard Preview](https://github.com/niy42/Bi-dashboard/blob/main/public/imgs/bi_dashboard.png)  
 *A modern and interactive Business Intelligence dashboard.*
 
 ## 🚀 Overview
