@@ -5,6 +5,7 @@ import { TextField, Button, Typography, CircularProgress, FormControlLabel, Chec
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "@/context/ThemeContext";
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,6 +16,14 @@ export default function Login() {
   const router = useRouter();
   const { theme } = useTheme();
 
+  const [lines, setLines] = useState<string[]>([]);
+
+  useEffect(() => {
+    const text = "Made with ❤️ from Niy42\n🚀 Passionate Developer\n🌍 Building the Future";
+    setLines(text.split(/\r?\n/).map(line => line.trim()).filter(line => line.length > 0))
+  }, []);
+
+  const sequence = lines.flatMap(line => [line, 1500]); // prevents re-renders
   const handleLogin = async () => {
     if (!email || !password) {
       setError("All fields are required");
@@ -182,13 +191,20 @@ export default function Login() {
           </Typography>
         </form>
       </div>
-      <p
-        className="mt-16 -ml-[900px] text-[var(--text-color)] text-xs sm:text-sm opacity-75"
-        data-aos="fade-right"
-        data-aos-delay="1000"
-      >
-        Made with ❤️ from Niy42
-      </p>
+      <Typography
+        variant="body2"
+        className="absolute bottom-2 left-4 text-[var(--text-color)] text-xs sm:text-sm opacity-75"
+
+      >{sequence.length > 0 && (
+        <TypeAnimation
+          sequence={sequence}
+          speed={50}
+          wrapper="span"
+          cursor={true}
+          repeat={Infinity}
+        />
+      )}
+      </Typography>
     </div>
   );
 }
