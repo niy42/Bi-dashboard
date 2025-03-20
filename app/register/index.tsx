@@ -54,7 +54,7 @@ export default function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
+    <div className="overflow-hidden flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
       <div
         className="w-full max-w-md space-y-6 p-6 sm:p-8 rounded-lg shadow-lg bg-[var(--form-background)] text-[var(--text-color)]"
         data-aos="fade-up"
