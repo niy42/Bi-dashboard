@@ -20,7 +20,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-## ✨ Features
+## Features
 - **✅ Dashboard Overview**: Displays total users, active sessions, and sales revenue in responsive metric cards.  
 - **📊 Data Visualizations**:
 - **📈 Line Chart**: Tracks sales trends over time.
@@ -34,7 +34,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Framework**: [Next.js](https://nextjs.org/) (App Router)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/), [Material-UI (MUI)](https://mui.com/)
 - **Charts**: [Recharts](https://recharts.org/)
@@ -45,7 +45,7 @@ BI Dashboard is a cutting-edge business intelligence application built with **Ne
 
 ---
 
-## ⚡ Setup Instructions
+## Setup Instructions
 ### Prerequisites
 Ensure you have the following installed:
 - **Node.js**: v18.x or later
@@ -55,7 +55,7 @@ Ensure you have the following installed:
 ### Installation
 ```bash
 # Clone the Repository
-git clone https://github.com/niy2/bi-dashboard.git
+git clone https://github.com/niy42/bi-dashboard.git
 cd bi-dashboard
 
 # Install Dependencies
@@ -67,6 +67,9 @@ Create a `.env.local` file in the root directory and add:
 ```env
 NEXTAUTH_URL=http://localhost:3000
 NEXTAUTH_SECRET=your-secret-key-here
+```
+Optional: Create a `.env` file specifically for postgresql in the root directory and add:
+```env
 # DATABASE_URL=postgresql://user:password@localhost:5432/bi_dashboard (if using Prisma)
 ```
 Generate a secure **NEXTAUTH_SECRET**:
@@ -99,7 +102,7 @@ npx prisma migrate dev --name init
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 ```
 bi-dashboard/
 ├── app/                   # Next.js App Router
@@ -116,8 +119,9 @@ bi-dashboard/
 ├── context/               # React Context (Theme management)
 ├── lib/                   # Utility functions & mock data
 ├── public/                # Static assets
-├── styles/                # Global CSS
-├── .env.local             # Environment variables (not tracked)
+├── styles/
+├── .env                   # Environment variables (specifically for postgresql)
+├── .env.local             # Environment variables (for next env variables)
 ├── next.config.js         # Next.js configuration
 ├── package.json           # Dependencies & scripts
 └── README.md              # Project documentation
@@ -125,26 +129,26 @@ bi-dashboard/
 
 ---
 
-## 🎨 Design Considerations
-### 🌗 Theme Persistence
+## Design Considerations
+## 🌗 Theme Persistence
 - **Approach**: Uses cookies for SSR theme persistence & localStorage for client-side sync.
 - **Why Cookies?**: Prevents hydration errors when switching themes.
 
-### 🔐 Authentication
+## 🔐 Authentication
 - **Inactivity Timeout**: Logs out users after 1 min of inactivity (configurable).
 - **Session Handling**: Managed via NextAuth.js with automatic redirects.
 
-### 📱 Responsive Design
+## 📱 Responsive Design
 - **Charts**: Adjusts size, padding, and labels dynamically.
 - **Layout**: Uses Tailwind’s grid system for flexible columns.
 
-### ⚡ Performance
+## ⚡ Performance
 - **Loading States**: Animated spinners for smooth UX.
 - **Server Components**: Uses Next.js App Router for SSR improvements.
 
 ---
 
-## 📌 Usage
+## Usage
 - **Login**: Enter credentials (configured in NextAuth.js providers).
 - **Dashboard**: View key metrics, charts, and data tables.
 - **Theme Toggle**: Switch between light & dark mode.
@@ -152,7 +156,7 @@ bi-dashboard/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 We welcome contributions! To contribute:
 ```bash
 # Fork the repository
@@ -171,10 +175,10 @@ git push origin feature/your-feature
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+## License
+This project is licensed under the **MIT License**. See📜[LICENSE](LICENSE) for details.
 
 ---
 
-🚀 **Live Demo**: [Visit BI Dashboard](https://your-site-link.com)
+🚀 **Live Demo**: [Visit BI Dashboard](https://bi-dashb.netlify.app/)
 
