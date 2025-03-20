@@ -5,6 +5,7 @@ import "./globals.css";
 import AuthProvider from "@/components/AuthProvider";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { cookies } from "next/headers"; // Server-side cookie access
+import AosInitializer from "./aos";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default async function RootLayout({
   return (
     <html lang="en" data-theme={initialTheme} suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <AosInitializer />
         <ThemeProvider initialTheme={initialTheme}>
           <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>

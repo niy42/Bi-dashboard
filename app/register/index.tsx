@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextField, Button, Typography, CircularProgress } from "@mui/material";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useTheme } from "@/context/ThemeContext"
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -40,88 +40,147 @@ export default function Register() {
         name,
         callbackUrl: "/dashboard",
       }, { nextauth: "signup" });
-      console.log("SignIn result:", result);
+
       if (result?.error) {
         setError(result.error);
         setLoading(false);
       } else {
         router.push("/");
       }
-    } catch (err: any) {
+    } catch (err) {
       setError("Something went wrong. Please try again.");
       setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="p-8 rounded-lg shadow-lg w-full max-w-md bg-[var(--form-background)] text-[var(--text-color)]">
-        <Typography variant="h5" className="text-2xl font-bold mb-6 text-center">
+    <div className="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
+      <div
+        className="w-full max-w-md space-y-6 p-6 sm:p-8 rounded-lg shadow-lg bg-[var(--form-background)] text-[var(--text-color)]"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <Typography
+          variant="h5"
+          className="text-xl sm:text-2xl font-bold text-center"
+          data-aos="fade-in"
+          data-aos-delay="200"
+        >
           Register
         </Typography>
-        <TextField
-          label="Full Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{ style: { color: "var(--text-color)" } }}
-          inputProps={{ style: { color: "var(--text-color)" } }}
-          error={!!error && !name}
-          disabled={loading}
-        />
-        <TextField
-          label="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{ style: { color: "var(--text-color)" } }}
-          inputProps={{ style: { color: "var(--text-color)" } }}
-          error={!!error && (!email || !/\S+@\S+\.\S+/.test(email))}
-          disabled={loading}
-        />
-        <TextField
-          label="Password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          fullWidth
-          margin="normal"
-          variant="outlined"
-          InputLabelProps={{ style: { color: "var(--text-color)" } }}
-          inputProps={{ style: { color: "var(--text-color)" } }}
-          error={!!error && (!password || password.length < 6)}
-          disabled={loading}
-        />
-        {error && (
-          <Typography className="text-red-500 text-sm mt-2 text-center">{error}</Typography>
-        )}
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleRegister}
-          fullWidth
-          className="mt-6 relative top-2"
-          disabled={loading}
-        >
-          {loading ? (
-            <div className={`flex items-center justify-center ${theme === "dark" ? "text-amber-100" : "text-gray-900"}`}>
-              <CircularProgress size={24} color="inherit" className="mr-2" />
-              Registering...
-            </div>
-          ) : (
-            "Register"
+
+        <form onSubmit={(e) => { e.preventDefault(); handleRegister(); }} className="space-y-4">
+          <TextField
+            label="Full Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            InputLabelProps={{
+              style: { color: "var(--text-color)" },
+              shrink: true
+            }}
+            inputProps={{ style: { color: "var(--text-color)" } }}
+            error={!!error && !name}
+            disabled={loading}
+            className="bg-[var(--input-background)]"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          />
+
+          <TextField
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            InputLabelProps={{
+              style: { color: "var(--text-color)" },
+              shrink: true
+            }}
+            inputProps={{
+              style: { color: "var(--text-color)" },
+              autoCapitalize: "none"
+            }}
+            error={!!error && (!email || !/\S+@\S+\.\S+/.test(email))}
+            disabled={loading}
+            className="bg-[var(--input-background)]"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          />
+
+          <TextField
+            label="Password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            fullWidth
+            margin="normal"
+            variant="outlined"
+            InputLabelProps={{
+              style: { color: "var(--text-color)" },
+              shrink: true
+            }}
+            inputProps={{ style: { color: "var(--text-color)" } }}
+            error={!!error && (!password || password.length < 6)}
+            disabled={loading}
+            className="bg-[var(--input-background)]"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          />
+
+          {error && (
+            <Typography
+              className="text-red-500 text-sm text-center"
+              data-aos="fade-in"
+              data-aos-delay="600"
+            >
+              {error}
+            </Typography>
           )}
-        </Button>
-        <Typography className="relative top-4 text-center flex justify-center gap-2">
-          Already have an account?
-          <a href="/" className="hover:underline">
-            Login
-          </a>
-        </Typography>
+
+          <Button
+            variant="contained"
+            onClick={handleRegister}
+            fullWidth
+            disabled={loading}
+            sx={{
+              mt: 2,
+              py: 1.5,
+              backgroundColor: "primary",
+              '&:hover': {
+                backgroundColor: "primary.dark",
+              },
+            }}
+            data-aos=""
+            data-aos-delay="700"
+          >
+            {loading ? (
+              <div className={`flex items-center justify-center ${theme === "dark" ? "text-amber-100" : "text-gray-900"}`}>
+                <CircularProgress size={24} color="inherit" className="mr-2" />
+                Registering...
+              </div>
+            ) : (
+              "Register"
+            )}
+          </Button>
+
+          <Typography
+            className="relative top-3 text-center text-sm flex justify-center gap-1"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            Already have an account? {" "}
+            <a
+              href="/"
+              className="text-[var(--primary-color)] hover:underline"
+            >
+              Login
+            </a>
+          </Typography>
+        </form>
       </div>
     </div>
   );
