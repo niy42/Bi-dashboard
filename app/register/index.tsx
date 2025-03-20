@@ -155,7 +155,7 @@ export default function Register() {
               },
             }}
             data-aos=""
-            data-aos-delay="700"
+            data-aos-delay=""
           >
             {loading ? (
               <div className={`flex items-center justify-center ${theme === "dark" ? "text-amber-100" : "text-gray-900"}`}>
