@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextField, Button, Typography, CircularProgress } from "@mui/material";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -33,38 +33,38 @@ export default function Register() {
     setError("");
 
     try {
-      // Register by telling NextAuth this is a signup action
       const result = await signIn("credentials", {
         redirect: false,
         email,
         password,
         name,
-        mode: "signup",
         callbackUrl: "/dashboard",
-      });
+      }, { nextauth: "signup" });
 
       if (result?.error) {
         setError(result.error);
         setLoading(false);
-        return;
+      } else {
+        router.push("/");
       }
-
-      router.push("/dashboard");
     } catch (err) {
       setError("Something went wrong. Please try again.");
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
     <div className="overflow-hidden flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8 bg-[var(--background)]">
       <div
         className="w-full max-w-md space-y-6 p-6 sm:p-8 rounded-lg shadow-lg bg-[var(--form-background)] text-[var(--text-color)]"
+        data-aos="fade-up"
+        data-aos-delay="100"
       >
         <Typography
           variant="h5"
           className="text-xl sm:text-2xl font-bold text-center"
+          data-aos="fade-in"
+          data-aos-delay="200"
         >
           Register
         </Typography>
@@ -77,10 +77,16 @@ export default function Register() {
             fullWidth
             margin="normal"
             variant="outlined"
-            InputLabelProps={{ style: { color: "var(--text-color)" }, shrink: true }}
+            InputLabelProps={{
+              style: { color: "var(--text-color)" },
+              shrink: true
+            }}
             inputProps={{ style: { color: "var(--text-color)" } }}
+            error={!!error && !name}
             disabled={loading}
             className="bg-[var(--input-background)]"
+            data-aos="fade-up"
+            data-aos-delay="300"
           />
 
           <TextField
@@ -90,10 +96,19 @@ export default function Register() {
             fullWidth
             margin="normal"
             variant="outlined"
-            InputLabelProps={{ style: { color: "var(--text-color)" }, shrink: true }}
-            inputProps={{ style: { color: "var(--text-color)" } }}
+            InputLabelProps={{
+              style: { color: "var(--text-color)" },
+              shrink: true
+            }}
+            inputProps={{
+              style: { color: "var(--text-color)" },
+              autoCapitalize: "none"
+            }}
+            error={!!error && (!email || !/\S+@\S+\.\S+/.test(email))}
             disabled={loading}
             className="bg-[var(--input-background)]"
+            data-aos="fade-up"
+            data-aos-delay="400"
           />
 
           <TextField
@@ -104,14 +119,24 @@ export default function Register() {
             fullWidth
             margin="normal"
             variant="outlined"
-            InputLabelProps={{ style: { color: "var(--text-color)" }, shrink: true }}
+            InputLabelProps={{
+              style: { color: "var(--text-color)" },
+              shrink: true
+            }}
             inputProps={{ style: { color: "var(--text-color)" } }}
+            error={!!error && (!password || password.length < 6)}
             disabled={loading}
             className="bg-[var(--input-background)]"
+            data-aos="fade-up"
+            data-aos-delay="500"
           />
 
           {error && (
-            <Typography className="text-red-500 text-sm text-center">
+            <Typography
+              className="text-red-500 text-sm text-center"
+              data-aos="fade-in"
+              data-aos-delay="600"
+            >
               {error}
             </Typography>
           )}
@@ -121,19 +146,39 @@ export default function Register() {
             onClick={handleRegister}
             fullWidth
             disabled={loading}
-            sx={{ mt: 2, py: 1.5 }}
+            sx={{
+              mt: 2,
+              py: 1.5,
+              backgroundColor: "primary",
+              '&:hover': {
+                backgroundColor: "primary.dark",
+              },
+            }}
+            data-aos=""
+            data-aos-delay=""
           >
             {loading ? (
               <div className={`flex items-center justify-center ${theme === "dark" ? "text-amber-100" : "text-gray-900"}`}>
                 <CircularProgress size={24} color="inherit" className="mr-2" />
                 Registering...
               </div>
-            ) : "Register"}
+            ) : (
+              "Register"
+            )}
           </Button>
 
-          <Typography className="relative top-3 text-center text-sm">
-            Already have an account?
-            <a href="/" className="text-[var(--primary-color)] hover:underline ml-1">Login</a>
+          <Typography
+            className="relative top-3 text-center text-sm flex justify-center gap-1"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            Already have an account? {" "}
+            <a
+              href="/"
+              className="text-[var(--primary-color)] hover:underline"
+            >
+              Login
+            </a>
           </Typography>
         </form>
       </div>

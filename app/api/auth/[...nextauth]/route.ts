@@ -44,7 +44,31 @@ const handler = NextAuth({
                 }
 
                 // Handle registration
-                if (req.query?.nextauth?.includes("signup")) {
+                // if (req.query?.nextauth?.includes("signup")) {
+                //     console.log("Handling registration for email:", email);
+                //     try {
+                //         const newUser = await registerUser(email, password, name || "");
+                //         console.log("User registered via registerUser:", newUser);
+                //         return {
+                //             ...newUser,
+                //             keepLoggedIn: keepLoggedIn === "true" || false,
+                //         };
+                //     } catch (error) {
+                //         if (error instanceof Error) {
+                //             console.log("Registration error:", error.message);
+                //         } else {
+                //             console.log("Registration error:", error);
+                //         }
+                //         if (error instanceof Error) {
+                //             throw new Error(error.message || "Registration failed");
+                //         } else {
+                //             throw new Error("Registration failed");
+                //         }
+                //     }
+                // }
+
+                // Handle registration
+                if (credentials?.mode === "signup") {
                     console.log("Handling registration for email:", email);
                     try {
                         const newUser = await registerUser(email, password, name || "");
@@ -54,18 +78,11 @@ const handler = NextAuth({
                             keepLoggedIn: keepLoggedIn === "true" || false,
                         };
                     } catch (error) {
-                        if (error instanceof Error) {
-                            console.log("Registration error:", error.message);
-                        } else {
-                            console.log("Registration error:", error);
-                        }
-                        if (error instanceof Error) {
-                            throw new Error(error.message || "Registration failed");
-                        } else {
-                            throw new Error("Registration failed");
-                        }
+                        console.log("Registration error:", error);
+                        throw new Error(error.message || "Registration failed");
                     }
                 }
+
 
                 // Handle login
                 const user = await authenticateUser(email, password);
