@@ -68,7 +68,14 @@ const handler = NextAuth({
         // }
 
         // Handle registration
-        if ((credentials?.mode as string) === "signup") {
+        if (
+          (
+            credentials as Record<
+              "name" | "email" | "password" | "keepLoggedIn" | "mode",
+              string
+            >
+          )?.mode === "signup"
+        ) {
           console.log("Handling registration for email:", email);
           try {
             const newUser = await registerUser(email, password, name || "");
@@ -77,9 +84,11 @@ const handler = NextAuth({
               ...newUser,
               keepLoggedIn: keepLoggedIn === "true" || false,
             };
-          } catch (error) {
+          } catch (error: unknown) {
             console.log("Registration error:", error);
-            throw new Error(error.message || "Registration failed");
+            throw new Error(
+              (error as { message: string })?.message || "Registration failed"
+            );
           }
         }
 
